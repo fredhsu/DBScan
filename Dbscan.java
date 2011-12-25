@@ -27,9 +27,17 @@ public class Dbscan {
         minPts = x;
     }
 
-    public ArrayList <Point> regionQuery (Point p) {
-
+    public ArrayList <Point> regionQuery (Point core) {
+        ArrayList <Point> result = new ArrayList <Point> ();
+        for(Point p : dataset) {
+            double dist = Point.distance(core, p);
+            if(dist <= eps && p != core) {
+                result.add(p);
+            }
+        }
+        return result;
     }
+
     public void setDataset(ArrayList<Point> p) {
         dataset = p;
         unvisited = new HashSet<Point>(dataset);

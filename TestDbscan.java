@@ -38,6 +38,12 @@ public class TestDbscan extends TestCase {
 
     public void testRegionQuery() {
         ArrayList <Point> n1 = d.regionQuery(p.get(1));
-        ArrayList <Point> n2 = d.regionQuery(p.get)
+        ArrayList <Point> n2 = d.regionQuery(p.get(7));
+        assertEquals(n1.size(), 0);
+        assertEquals(n2.size(), 2);
+        assertTrue(n2.contains(p.get(6)));
+        assertTrue(n2.contains(p.get(5)));
+
+
     }
 }
